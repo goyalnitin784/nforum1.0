@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="resources" default="" basedir=".">
+
+	<target name="copy_resources_template" >
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.project.dir}/class-resources" includes="**/*.*"/>
+		</copy>
+
+		<copy todir="${target.dir}/resources">
+			<fileset dir="${resources.project.dir}/resources" includes="**/*.*"/>
+		</copy>
+
+		<copy todir="${target.dir}/WEB-INF">
+			<fileset dir="${resources.project.dir}/WEB-INF" includes="**/*.*"/>
+		</copy>
+
+	</target>
+
+
+	<target name="copy_local_resources_template" >
+
+		<!--All static resources under webapp directory -->
+		<copy todir="${target.dir}">
+			<fileset dir="${webapp.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+		<!-- All class resourecs under resources directory except properties-->
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}" >
+				<exclude name="**/properties/**"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+		<!-- All class resourecs under properties directory except environment-->
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}/properties" >
+				<exclude name="**/environment/**"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+
+		<!-- Environment specific properties -->
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}/properties/environment/${environment}" includes="**/*.properties"/>
+			<fileset dir="${resources.dir}" includes="*.*"/>
+		</copy>
+
+		<!-- Common properties -->
+		<!--copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}/properties" includes="*.properties"/>
+			<fileset dir="${resources.dir}" includes="*.*"/>
+		</copy-->
+
+	</target>
+
+	<target name="clean_template">
+		<delete dir="${target.root}" />
+		<mkdir dir="${target.dir}/resources" />
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<path id="classpath">
+		<fileset dir="${libs.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+    </path>
+
+	<target name="compile_template">
+		<javac
+			srcdir="${src.dir}"
+			destdir="${classes.dir}"
+			debug="on"
+			memoryinitialsize="256m"
+			memorymaximumsize="1024m"
+			fork="true">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+</project>
