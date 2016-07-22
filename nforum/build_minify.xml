@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dynapack" default="minify_template" basedir=".">
+
+	<path id="classpath">
+		<fileset dir="${libs.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="minify_template" >
+		<if>
+		 <equals arg1="${do.minify}" arg2="true" />
+		 <then>
+		 	<antcall target="doMinify"/>
+		 </then>
+		</if>
+	</target>
+
+	<target name="minifier">
+		<echo message="Minifying...${directory.include}" />
+		<apply executable="java" parallel="false">
+			<fileset dir="."
+				includes="${target.root}/${context.name}/${directory.include}"
+				excludes="${target.root}/${context.name}/${directory.exclude}"	/>
+			<arg line="-jar"/>
+			<arg line="-jar ${libs.dir}/jars/other/yuicompressor-2.4.7.jar --charset ISO-8859-1  " />
+			<arg line="-o" />
+			<mapper type="glob" from="${mapper.from}" to="${mapper.to}" />
+			<targetfile />
+		</apply>
+	</target>
+
+	<target name="doMinify" >
+	 <echo message="${target.root}"></echo>
+	  <antcall target="minifier">
+	  	  <param name="directory.include" value="resources/**/*.js"/>
+	  	  <param name="directory.exclude" value="resources/**/*.min.js"/>
+	  	  <param name="mapper.from" value="*.js"/>
+	  	  <param name="mapper.to" value="*.min.js"/>
+	  </antcall>
+	  <antcall target="minifier">
+	  	  <param name="directory.include" value="resources/**/*.css"/>
+	  	  <param name="directory.exclude" value="resources/**/*.min.css"/>
+	  	  <param name="mapper.from" value="*.css"/>
+	  	  <param name="mapper.to" value="*.min.css"/>
+	  </antcall>
+	</target>
+</project>

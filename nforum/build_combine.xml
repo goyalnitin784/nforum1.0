@@ -1,0 +1,13 @@
+<project name="nforum" default="combine_template" basedir=".">
+	<target name="combine_template" >
+		<if>
+			<equals arg1="${combine}" arg2="true" />
+			<then>
+				<antcall target="combine"/>
+			</then>
+		</if>
+	</target>
+	<target name="combine" >
+
+	</target>
+</project>

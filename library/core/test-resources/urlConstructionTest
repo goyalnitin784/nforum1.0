@@ -1,0 +1,50 @@
+[
+    {
+        "id_addons": 9,
+        "icon": "addons/2014/Jul/ae9123df0de1e5727c2c8a7ea8b39b63.gif",
+        "is_checked": "1",
+        "show_checkbox": "1",
+        "alias": "",
+        "addon_types": "promotional",
+        "amount": "0",
+        "charge_type": "per_booking",
+        "content": "I want to receive promotions and special offers from nforum.",
+        "description": "",
+        "tnc_content": "",
+        "tnc_decription": "",
+        "tnc_link": "",
+        "shopping_cart_label": "special_offers"
+    },
+    {
+        "id_addons": 6,
+        "icon": "addons/2014/Jul/45623bd5cc648b1ffb5514b98c326da4.gif",
+        "is_checked": "1",
+        "show_checkbox": "1",
+        "alias": "TATA_AIG_DOMESTIC",
+        "addon_types": "insurance",
+        "amount": "129",
+        "charge_type": "per_pax",
+        "content": "I want Tata AIG's Domestic Travel Protection Policy, specially designed for nforum Passengers.",
+        "description": "I want Tata AIG's Domestic Travel Protection Policy, specially designed for nforum Passengers.",
+        "tnc_content": "I confirm that all passengers in this booking are between 2 years and 70 years of age.",
+        "tnc_decription": "<div ><b>Notes: </b>We have pre-selected Tata AIG's domestic travel protection policy for your trip. Please <a target='_blank' href='http://www.nforum.com/c/journal/view_article_content?groupId=23306&amp;articleId=24604&amp;version=1.0' id='yttkd_insPol1'>Read the policy</a> to see the entire list of benefits.</div>",
+        "tnc_link": "http://www.nforum.com/c/journal/view_article_content?groupId=23306&articleId=24604&version=1.0",
+        "shopping_cart_label": "Travel Insurance"
+    },
+    {
+        "id_addons": 7,
+        "icon": "addons/2014/Jul/4f287d2950576ace891edee14eba9567.gif",
+        "is_checked": "1",
+        "show_checkbox": "1",
+        "alias": "",
+        "addon_types": "others",
+        "amount": "0",
+        "charge_type": "per_booking",
+        "content": "I want to be contacted by a Standard Chartered representative to apply for the Standard Chartered nforum Platinum Credit Card. ",
+        "description": "<p>India's First Travel Cash Back cum Rewards Card !!!</p> <p>Enroll now and get upto 10% Cashback, additional rewards on spends, travel vouchers worth Rs.8000 and 2.5% fuel surcharge waiver</p> <p>Loaded with benefits like Free Air Ticket (base fare free), and excellent Movies, Dinning and Shopping offers. </p>",
+        "tnc_content": "",
+        "tnc_decription": "",
+        "tnc_link": "",
+        "shopping_cart_label": "Standard Chartered"
+    }
+]

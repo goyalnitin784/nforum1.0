@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="domSearch/template" template="/WEB-INF/jsp/result-base.jsp">
+		<put-attribute name="optimizely" value="/WEB-INF/jsp/common/optimizely/optimizely.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header-footer/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/domestic/search-dom.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/header-footer/footer.jsp" />
+	</definition>
+	<definition name="b2bdomSearch/template" template="/WEB-INF/jsp/result-base.jsp">
+		<put-attribute name="optimizely" value="/WEB-INF/jsp/common/optimizely/optimizely.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header-footer/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/domestic/search-dom.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/header-footer/footer.jsp" />
+	</definition>
+	<definition name="crpdomSearch/template" template="/WEB-INF/jsp/result-base.jsp">
+		<put-attribute name="optimizely" value="/WEB-INF/jsp/common/optimizely/optimizely.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header-footer/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/domestic/search-dom.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/header-footer/footer.jsp" />
+	</definition>
+	<definition name="intSearch/template" template="/WEB-INF/jsp/result-base.jsp">
+		<put-attribute name="optimizely" value="/WEB-INF/jsp/common/optimizely/optimizely.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header-footer/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/international/search-int.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/header-footer/footer.jsp" />
+	</definition>
+	<definition name="b2bintSearch/template" template="/WEB-INF/jsp/result-base.jsp">
+		<put-attribute name="optimizely" value="/WEB-INF/jsp/common/optimizely/optimizely.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header-footer/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/international/search-int.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/header-footer/footer.jsp" />
+	</definition>
+	<definition name="crpintSearch/template" template="/WEB-INF/jsp/result-base.jsp">
+		<put-attribute name="optimizely" value="/WEB-INF/jsp/common/optimizely/optimizely.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header-footer/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/international/search-int.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/header-footer/footer.jsp" />
+	</definition>
+	<definition name="domSeoSearch/template" template="/WEB-INF/jsp/result-base-seo.jsp">
+		<put-attribute name="content" value="/WEB-INF/jsp/domestic/search-dom-seo.jsp"/>
+	</definition>
+	<definition name="intSeoSearch/template" template="/WEB-INF/jsp/result-base-seo.jsp">
+		<put-attribute name="content" value="/WEB-INF/jsp/international/search-int-seo.jsp"/>
+	</definition>
+	<definition name="error" extends="domSearch/template" >
+		<put-attribute name="content" value="/WEB-INF/jsp/login_error.jsp"/>
+	</definition>
+</tiles-definitions>

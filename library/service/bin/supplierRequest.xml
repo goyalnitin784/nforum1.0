@@ -1,0 +1,19 @@
+<YT_NimbleRQ AvailableFlightsOnly="" DirectFlightsOnly=""
+	MaxResponses="100" RetransmissionIndicator="" SequenceNmbr="" Target=""
+	TransactionIdentifier="0" Version="1.01">
+	<POS>
+		<Source AgentSine="" ISOCountry="" ISOCurrency="INR"
+			PseudoCityCode="PCC" TerminalID="1">
+			<RequestorID ID="nforumINT" ID_Context="" Instance=""
+				MessagePasswCHI="" Type="" URL="" />
+		</Source>
+		<nforumRequests>
+			<nforumRequest DoNotHitCache="true" LastResultFromCache="false" TenantScope="INT"
+				nforumRequestTypeCode="SMPA" TripType="O" />
+		</nforumRequests>
+	</POS>
+	<OriginDestinationInformation>
+		<OriginLocation LocationCode="DEL"></OriginLocation>
+		<DestinationLocation LocationCode="BAH"></DestinationLocation>
+	</OriginDestinationInformation>
+</YT_NimbleRQ> 

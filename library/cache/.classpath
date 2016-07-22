@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/libs"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-agent.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-aop-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-beans-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-binding-2.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-context-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-context-support-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-core-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-expression-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-jdbc-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-jms-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-js-2.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-js-resources-2.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-json-1.0.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-messaging-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-mock.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-modules-validation.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-orm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-oxm-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-oxm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-oxm-tiger-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-test.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-tx-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-web-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-webflow-2.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-webmvc-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-websocket-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-ws-core-tiger-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-ws-security-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/spring-ws-support-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/spring/springmodules-validator-0.2-sources.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/logging/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/logging/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/logging/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/libs/jars/cache/spymemcached-2.7.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

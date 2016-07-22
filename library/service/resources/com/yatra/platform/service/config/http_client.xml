@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="httpConnectionManagerParams" class="org.apache.commons.httpclient.params.HttpConnectionManagerParams">
+		<property name="soTimeout" value="120000"/>
+		<property name="connectionTimeout" value="30000"/>
+		<property name="defaultMaxConnectionsPerHost" value="1000"/>
+		<property name="maxTotalConnections" value="100"/>
+	</bean>
+
+	<bean id="multiThreadedHttpConnectionManager" class="org.apache.commons.httpclient.MultiThreadedHttpConnectionManager">
+		<property name="params" ref="httpConnectionManagerParams"/>
+	</bean>
+
+	<bean id="httpClient" class="org.apache.commons.httpclient.HttpClient">
+		<constructor-arg index="0" ref="multiThreadedHttpConnectionManager"/>
+	</bean>
+
+	<!-- Uses Preconfigured Apache Client -->
+	<bean id="httpService" class="com.nforum.platform.http.HttpService">
+		<constructor-arg index="0" ref="httpClient"/>
+	</bean>
+
+	<!-- Does not use Apache Http Client, uses java socket API -->
+	<bean id="httpServiceSimple" class="com.nforum.platform.http.service.SimpleSocketServiceContainer">
+		<constructor-arg index="0" ref="httpSocketService"/>
+	</bean>
+
+	<!-- Always instantiates a new HttpClient -->
+	<bean id="httpServiceDefault" class="com.nforum.platform.http.service.SimpleSocketServiceContainer">
+		<constructor-arg index="0" ref="httpApacheDefaultService"/>
+	</bean>
+
+	<bean id="httpApacheDefaultService" class="com.nforum.platform.http.service.DefaultApacheHttpService" />
+	<bean id="httpSocketService" class="com.nforum.platform.http.service.HttpSocketService" />
+
+</beans>

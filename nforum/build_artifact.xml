@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="nforum-artifact" default="" basedir=".">
+	
+	<property file="build.properties" />
+	
+	<path id="classpath">
+		<fileset dir="${libs.dir}">
+			<include name="**/*.jar" />
+		</fileset>				
+    </path>
+		
+	<path id="xjc-classpath">
+		<fileset dir="${libs.dir}/libs/xml/jaxb">
+			<include name="*.jar" />
+		</fileset>				
+    </path>
+	
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask"
+	                    classpathref="classpath"/>
+	
+	
+	<target name="generateArtifact">
+		<xjc 
+			package="com.nforum.products.air.search.executor.request.model" 
+			target="src"
+			>
+		     
+			<schema  dir="resources/xsd/xdist" includes="*.xsd" />
+		</xjc>
+	    <!--java 
+	    	classname="com.sun.tools.xjc.XJCFacade"> 
+	            <arg value="-p" />
+	            <arg value="com.nforum.products.air.search.executor.request.model"/>
+	            <arg value="-d" />
+    	        <arg value="${src.dir}"/>
+				<arg value="${resources.dir}/xsd/search.xsd" />
+	    	<classpath refid="classpath" />
+	    </java-->
+	</target>
+	
+</project>
+	

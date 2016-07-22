@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="resources" default="buildAll" basedir=".">
+	
+<target name="buildAll">
+	
+	<ant antfile="../../library/core/build.xml"             target="build" dir="../../library/core"               inheritall="false"/>
+	<ant antfile="../../library/properties/build.xml"       target="build" dir="../../library/properties"         inheritall="false"/>
+	<ant antfile="../../library/cache/build.xml"            target="build" dir="../../library/cache"              inheritall="false"/>
+	<ant antfile="../../library/service/build.xml"          target="build" dir="../../library/service"            inheritall="false"/>
+	
+	
+</target>
+	
+</project>

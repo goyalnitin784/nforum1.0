@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="nforum_core" default="build" basedir=".">
+
+	<property file="build.properties" />
+
+	<target name="clean" description="Cleans target directory and creates necessary subdirectories">
+		<delete dir="${target.dir}" />
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="compile" description="Compiles java code" depends="clean">
+		<ant antfile="${ant.templates.dir}/build.xml" target="compile_template" inheritall="true"/>
+	</target>
+	
+	<target name="copy_resources" depends="compile">
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="package" depends="copy_resources">
+		<jar destfile="${target.dir}/${artifact.name}">
+			<fileset dir="${classes.dir}"/>
+		</jar>
+	</target>
+
+	<target name="build" depends="package">
+		<copy todir="${libs.dir}/jars/nforum">
+			<fileset file="${target.dir}/${artifact.name}"/>
+		</copy>
+	</target>
+
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jars/other/jxl.jar"/>
+	<classpathentry kind="lib" path="jars/axis/axis-ant.jar"/>
+	<classpathentry kind="lib" path="jars/axis/axis.jar"/>
+	<classpathentry kind="lib" path="jars/axis/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="jars/axis/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="jars/axis/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="jars/axis/saaj.jar"/>
+	<classpathentry kind="lib" path="jars/db/ibatis/ibatis-core-3.0.jar"/>
+	<classpathentry kind="lib" path="jars/db/ibatis/mybatis-3.0.6.jar"/>
+	<classpathentry kind="lib" path="jars/db/ibatis/mybatis-spring-1.0.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

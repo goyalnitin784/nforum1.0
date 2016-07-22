@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="nforum-ui" default="" basedir=".">
+
+	<property file="build.properties" />
+	<property environment="env"/>
+	<condition property="environment" value="${env.environment}" else="dev">
+		<isset property="env.environment" />
+	</condition>
+	<condition property="server.deploy.dir" value="${env.server_deploy_dir}" else="${property.server.deploy.dir}">
+		<isset property="env.environment" />
+	</condition>
+
+	<echo>##############################</echo>
+	<echo>Building for environment - ${env.environment}</echo>
+	<echo>Minfication - ${env.minify}</echo>
+	<echo>##############################</echo>
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="../libs/jars/other/antcontrib.jar"/>
+
+	<target name="clean" >
+		<ant antfile="${ant.templates.dir}/build.xml" target="clean_template" inheritall="true"/>
+	</target>
+
+	<target name="compile" depends="clean">
+		<ant antfile="${ant.templates.dir}/build.xml" target="compile_template" inheritall="true"/>
+	</target>
+
+	<target name="copy_resources" depends="clean,copy_jars">
+
+		<ant antfile="${ant.templates.dir}/build.xml" target="copy_local_resources_template" inheritall="true"/>
+
+		<ant antfile="${ant.templates.dir}/build.xml" target="copy_resources_template" inheritall="true">
+			<property name="resources.project.dir" value="${nforum.resources.dir}"/>
+		</ant>
+
+		<ant antfile="${ant.templates.dir}/build.xml" target="copy_resources_template" inheritall="true">
+			<property name="resources.project.dir" value="${global.resources.dir}"/>
+		</ant>
+
+	</target>
+
+	<target name="copy_jars">
+		<!-- All library jars except nforum's jars -->
+		<copy todir="${libs.target.dir}" flatten="true">
+			<fileset dir="${libs.dir}/jars">
+				<include name="**/*.jar" />
+				<exclude name="**nforum/*.jar"/>
+			</fileset>
+		</copy>
+		<!-- Specific nforum jars used in this project-->
+		<copy todir="${libs.target.dir}" >
+			<fileset dir="${libs.dir}/jars/nforum" includes="nforum_core.jar" />
+			<fileset dir="${libs.dir}/jars/nforum" includes="nforum_properties.jar" />
+			<fileset dir="${libs.dir}/jars/nforum" includes="nforum_cache.jar" />
+			<fileset dir="${libs.dir}/jars/nforum" includes="nforum_services.jar" />
+			<fileset dir="${libs.dir}/jars/nforum" includes="UserAgentUtils-1.2.3.jar" />
+		</copy>
+	</target>
+
+	<target name="package" >
+		<war destfile="${target.root}/${war.name}" basedir="${target.dir}"/>
+	</target>
+
+	<target name="build"
+		depends="clean,compile,copy_resources,combine,minify,package">
+	</target>
+
+	<target name="deploy" depends="build">
+		<copy todir="${server.deploy.dir}"  overwrite="true">
+			<fileset file="${target.root}/${war.name}" />
+		</copy>
+	</target>
+
+	<target name="build_dependent_projects">
+		<ant antfile="../core/build.xml" target="build" dir="../library/core"  inheritall="false"/>
+		<ant antfile="../properties/build.xml" target="build" dir="../library/properties"  inheritall="false"/>
+		<ant antfile="../cache/build.xml" target="build" dir="../library/cache"  inheritall="false"/>
+		<ant antfile="../service/build.xml" target="build" dir="../library/service"  inheritall="false"/>
+	</target>
+
+	<target name="buildAll" depends="build_dependent_projects,build" />
+
+	<target name="test">
+		<ant antfile="${ant.templates.dir}/build_test.xml" target="test" inheritall="true"/>
+	</target>
+
+	<target name="minify" >
+		<ant antfile="build_minify.xml"  dir="./"  inheritall="true"/>
+	</target>
+
+	<target name="combine" >
+		<ant antfile="build_combine.xml"  dir="./"  inheritall="true"/>
+	</target>
+
+</project>
