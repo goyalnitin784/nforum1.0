@@ -26,17 +26,7 @@
 	</target>
 
 	<target name="copy_resources" depends="clean,copy_jars">
-
 		<ant antfile="${ant.templates.dir}/build.xml" target="copy_local_resources_template" inheritall="true"/>
-
-		<ant antfile="${ant.templates.dir}/build.xml" target="copy_resources_template" inheritall="true">
-			<property name="resources.project.dir" value="${nforum.resources.dir}"/>
-		</ant>
-
-		<ant antfile="${ant.templates.dir}/build.xml" target="copy_resources_template" inheritall="true">
-			<property name="resources.project.dir" value="${global.resources.dir}"/>
-		</ant>
-
 	</target>
 
 	<target name="copy_jars">
